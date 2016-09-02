@@ -44,8 +44,10 @@
 
 	function alertAnimalButtonPressed() {
 		var animalName = $(this).data("name");
-		alert("You picked " + animalName);
+		alert(animalName);
 	}
+
+
 	function createButtons() {
 		
 		$('#animalsView').empty(); //this prevents repetetition of buttons
@@ -55,9 +57,9 @@
 			
 			var a = $('<button>')
 			a.addClass('btn btn-warning');
-			a.attr('data-name', animals[i]);
+			a.attr('data-name', animals[i]);// add data-attribute
 			a.text(animals[i]); //text for button
-			$('#animalsView').append(a);
+			$('#animalsView').append(a);//add the button 
 
 		}
 	}
@@ -73,7 +75,7 @@
 		return false; 
 	})
 
-	$(document).on('click', '.btn btn-warning', alertAnimalButtonPressed);
+	$(document).on('click', '.btn-warning', alertAnimalButtonPressed);
 
 	createButtons();
 	
