@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fun with Giphy Animals</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link type="text/css" rel="stylesheet" href="assets/reset.css"> 
+		<link type="text/css" rel="stylesheet" href="assets/style.css"> 
+		<link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css">
+</head>
+<body>
+		<div class="container">
+			<h1>Fun Animal Search</h1>
+				<h2>This where the buttons will come: </h2>
+				<!-- this is where the buttons should show up -->
+				<div id="animalsView">
+				</div>
+  	
+		<br>
+  		<form class="form-inline">
+			<div class="animal-form">
+	  					<form>
+	  						<label class="control-label" for="animalInput">Search for your favorite animal</label>
+	  						<input id="animalInput" class="form-control" type="text" placeholder="Type here...">
+	  				<!-- this will trigger this AJAX call -->
+	  						<input id="findAnimal" type="submit" value="Animal Search" class="btn btn-success">
+	  					</form>
+			</div>
+
+			<div id="gifi">
+				<h2>The Giphys will go here: </h2>
+			</div>
+		</form>
+
+
+
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script type="text/javascript">
+
+//array of animals - these need to be buttons
+	var animals = ['turtle', 'cheeta', 'hampster', 'lion', 'gecko'];
+
+
+	function alertAnimalButtonPressed() {
+		var animalName = $(this).data("name");
+		alert("You picked " + animalName);
+	}
+	function createButtons() {
+		
+		$('#animalsView').empty(); //this prevents repetetition of buttons
+
+		//the function loops throgh the array of animals 
+		for (var i=0; i< animals.length; i++) {
+			
+			var a = $('<button>')
+			a.addClass('btn btn-warning');
+			a.attr('data-name', animals[i]);
+			a.text(animals[i]); //text for button
+			$('#animalsView').append(a);
+
+		}
+	}
+// function that triggers the AJAX call 
+	$("#findAnimal").on('click', function() {
+
+		var animal = $("#animalInput").val().trim(); //this is how the text from the input boxed is caputured
+
+		animals.push(animal); // the animal from the input is added to the animals array
+
+		createButtons();
+
+		return false; 
+	})
+
+	$(document).on('click', '.btn btn-warning', alertAnimalButtonPressed);
+
+	createButtons();
+	
+		
+	// 	// var key = "dc6zaTOxFJmzC";
+	// 	//this the var that is used for the ajax call to giphy
+	// 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC";
+	// 	$.ajax({url: queryURL, method:'GET'}).done(function(response) {
+	// 		$("#gifi").append(response);
+	// 	});
+
+	// 	return false;
+
+	// })
+
+	
+
+</script>
+	
+
+</script>
+</body>
+</html>
