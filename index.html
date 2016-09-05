@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -11,27 +12,26 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>Fun Animal Search</h1>
-    <h2>This where the buttons will come: </h2>
-    <!-- this is where the buttons should show up -->
+  
+    <header>Fun Animal Search</header>
 
+    <!-- this is where the buttons should show up -->
+<div class="container">
     <div id="buttonsView"></div>
 
     <br>
     <form name="form1" class="form-inline">
       <div class="animal-form">
         <label class="control-label" for="animalInput">Search for your favorite animal</label>
-
         <input name="form2" id="animalInput" class="form-control" type="text" placeholder="Type here...">
         <!-- this will trigger this AJAX call -->
 
         <input id="findAnimal" type="submit" value="Animal Search" class="btn btn-success">
       </div>
 
-
-      <h2>The Giphys will go here: </h2>
+      <h2>See your favorite animal giphys below </h2>
       <div id="animalsView">
+      
       </div>
 
     </form>

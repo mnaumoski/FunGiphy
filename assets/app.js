@@ -3,8 +3,8 @@ var animals = ['turtle', 'cheeta', 'hampster', 'lion', 'gecko', 'cat', 'dog'];
 
 function displayAnimal() {
   var animal = $(this).data("name");
-  // 	// var key = "dc6zaTOxFJmzC";
-  // 	//this the var that is used for the ajax call to giphy
+  //  // var key = "dc6zaTOxFJmzC";
+  //  //this the var that is used for the ajax call to giphy
   var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC";
   $.ajax({
     url: queryURL,
@@ -15,26 +15,26 @@ function displayAnimal() {
 
     for (var i = 0; i < 9; i++) {
 
-    var gifi = response.data[i].url;
-    var putGifiHere = $('<p class="text-primary">').text("Giphy source: " + gifi);
-    
-    console.log(gifi);
+      var gifi = response.data[i].url;
+      var putGifiHere = $('<p class="text-primary col-md-4">').text("Giphy source: " + gifi);
 
-    giphyDiv.append(putGifiHere);
+      console.log(gifi);
 
-    var image = $('<img>').attr('src', response.data[i].images.downsized.url);
-    giphyDiv.append(image);
+      giphyDiv.append(putGifiHere);
 
-    var rating = response.data[i].rating;
-    var putRatingHere = $('<p>').html("Rating: " + rating);
-    console.log(rating);
-    giphyDiv.append(putRatingHere);
+      var image = $('<img>').attr('src', response.data[i].images.downsized.url);
+      giphyDiv.append(image);
 
-    $('#animalsView').prepend(giphyDiv);
+      var rating = response.data[i].rating;
+      var putRatingHere = $('<p>').html("Rating: " + rating);
+      console.log(rating);
+      giphyDiv.append(putRatingHere);
 
-    console.log(response);
-  }; 
-});
+      $('#animalsView').prepend(giphyDiv);
+
+      console.log(response);
+    }
+  });
 }
 
 // function validate() {
@@ -75,4 +75,3 @@ $("#findAnimal").on('click', function() {
 $(document).on('click', '.btn-warning', displayAnimal);
 
 createButtons();
-
