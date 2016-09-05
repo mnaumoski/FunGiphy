@@ -11,24 +11,31 @@ function displayAnimal() {
     method: 'GET'
   }).done(function(response) {
 
-    var giphyDiv = $('<div class="giphy">');
+    var giphyDiv = $('<div class="giphy row">');
 
-    //the for loop helps load 10 gifs when user clicks once;
     for (var i = 0; i < 9; i++) {
 
-      var image = $('<img>').attr('src', response.data[i].images.downsized.url);
+      var image = $('<img class="col-md-2">').attr('src', response.data[i].images.downsized.url, response.data[i].rating);
+      
       giphyDiv.append(image);
 
-      var rating = response.data[i].rating;
-      var putRatingHere = $('<p>').html("Rating is: " + rating);
-      console.log(rating);
-      giphyDiv.append(putRatingHere);
+      // var rating = response.data[i].rating;
+      // var putRatingHere = $('<p class="col-md-2">').html("Rating: " + rating);
+      // console.log(rating);
+      // giphyDiv.append(putRatingHere);
 
       $('#animalsView').prepend(giphyDiv);
     }
   });
 }
 
+// function validate() {
+//   if (document.forms[form1].form2.value === "") {
+//     alert("Not cool");
+//     return false;
+//   }
+//   return true;
+// }
 
 function createButtons() {
 

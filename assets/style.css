@@ -7,14 +7,16 @@ header {
 
 label {
   padding: 20px;
-
 }
+
 img {
-  width: 250px;
-  height: 150px;
-
+  width: 100px;
+  height: 80px;
 }
 
+p {
+  float:left;
+}
 
 img:hover {
   animation-play-state: paused;
