@@ -13,37 +13,22 @@ function displayAnimal() {
 
     var giphyDiv = $('<div class="giphy">');
 
+    //the for loop helps load 10 gifs when user clicks once;
     for (var i = 0; i < 9; i++) {
-
-      var gifi = response.data[i].url;
-      var putGifiHere = $('<p class="text-primary col-md-4">').text("Giphy source: " + gifi);
-
-      console.log(gifi);
-
-      giphyDiv.append(putGifiHere);
 
       var image = $('<img>').attr('src', response.data[i].images.downsized.url);
       giphyDiv.append(image);
 
       var rating = response.data[i].rating;
-      var putRatingHere = $('<p>').html("Rating: " + rating);
+      var putRatingHere = $('<p>').html("Rating is: " + rating);
       console.log(rating);
       giphyDiv.append(putRatingHere);
 
       $('#animalsView').prepend(giphyDiv);
-
-      console.log(response);
     }
   });
 }
 
-// function validate() {
-//   if (document.forms[form1].form2.value === "") {
-//     alert("Not cool");
-//     return false;
-//   }
-//   return true;
-// }
 
 function createButtons() {
 
