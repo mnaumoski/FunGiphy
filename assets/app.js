@@ -23,7 +23,7 @@ function displayAnimal() {
 
       var rating = response.data[i].rating;
 
-      var putRatingHere = $('<p>').text("Rating: " + rating);
+      var putRatingHere = $('<p>').text("This giphy's rating: " + rating);
       
       giphyDiv.append(image);
 
@@ -35,13 +35,6 @@ function displayAnimal() {
   });
 }
 
-// function validate() {
-//   if (document.forms[form1].form2.value === "") {
-//     alert("Not cool");
-//     return false;
-//   }
-//   return true;
-// }
 
 function createButtons() {
 
@@ -69,8 +62,11 @@ $("#findAnimal").on('click', function() {
   createButtons();
 
   return false;
+
+
 });
 
 $(document).on('click', '.btn-warning', displayAnimal);
 
 createButtons();
+
