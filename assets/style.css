@@ -10,13 +10,11 @@ label {
 }
 
 img {
-  width: 100px;
-  height: 80px;
+  width: 250px;
+  height: 200px;
+  padding: 20px;
 }
 
-p {
-  float:left;
-}
 
 img:hover {
   animation-play-state: paused;

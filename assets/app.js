@@ -2,27 +2,30 @@
 var animals = ['turtle', 'cheeta', 'hampster', 'lion', 'gecko', 'cat', 'dog'];
 
 function displayAnimal() {
-  var animal = $(this).data("name");
+
+    $(".giphyRow").empty();
+
+    var animal = $(this).data("name");
   //  // var key = "dc6zaTOxFJmzC";
   //  //this the var that is used for the ajax call to giphy
-  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC";
-  $.ajax({
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC";
+    $.ajax({
     url: queryURL,
     method: 'GET'
-  }).done(function(response) {
+      }).done(function(response) {
 
-    var giphyDiv = $('<div class="giphy row">');
+    var giphyDiv = $('<div class="giphyRow">');
 
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 10; i++) {
 
-      var image = $('<img class="col-md-2">').attr('src', response.data[i].images.downsized.url, response.data[i].rating);
+      var image = $('<img>').attr('src', response.data[i].images.downsized.url);
       
       giphyDiv.append(image);
 
-      // var rating = response.data[i].rating;
-      // var putRatingHere = $('<p class="col-md-2">').html("Rating: " + rating);
-      // console.log(rating);
-      // giphyDiv.append(putRatingHere);
+      var rating = response.data[i].rating;
+      var putRatingHere = $('<p>').html("Rating: " + rating);
+      console.log(rating);
+      giphyDiv.append(putRatingHere);
 
       $('#animalsView').prepend(giphyDiv);
     }
@@ -54,6 +57,7 @@ function createButtons() {
 }
 // function that triggers the AJAX call 
 $("#findAnimal").on('click', function() {
+
 
   var animal = $("#animalInput").val().trim(); //this is how the text from the input boxed is caputured
 
