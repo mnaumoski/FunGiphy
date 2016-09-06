@@ -12,7 +12,7 @@ label {
 img {
   width: 250px;
   height: 200px;
-  padding: 20px;
+  padding: 0px 20px 20px 0px;
 }
 
 
@@ -20,12 +20,7 @@ img:hover {
   animation-play-state: paused;
 }
 
-.giphyRow {
-	text-align: center;
-
-}
-
-#animalsView {
-	text-align: center;
+.gallery {
+	display: inline-block;
 
 }

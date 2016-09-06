@@ -17,13 +17,13 @@ function displayAnimal() {
     
     for (var i = 0; i < 10; i++) {
 
-      var giphyDiv = $('<div class=>');
+      var giphyDiv = $('<div class="gallery">');
 
-      var image = $('<img class="col-md-2">').attr('src', response.data[i].images.downsized.url);
+      var image = $('<img>').attr('src', response.data[i].images.downsized.url);
 
       var rating = response.data[i].rating;
 
-      var putRatingHere = $('<p class="col-md-2">').html("Rating: " + rating);
+      var putRatingHere = $('<p>').text("Rating: " + rating);
       
       giphyDiv.append(image);
 
