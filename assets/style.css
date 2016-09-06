@@ -19,3 +19,13 @@ img {
 img:hover {
   animation-play-state: paused;
 }
+
+.giphyRow {
+	text-align: center;
+
+}
+
+#animalsView {
+	text-align: center;
+
+}

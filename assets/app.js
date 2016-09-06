@@ -3,7 +3,7 @@ var animals = ['turtle', 'cheeta', 'hampster', 'lion', 'gecko', 'cat', 'dog'];
 
 function displayAnimal() {
 
-    $(".giphyRow").empty();
+    $("#animalsView").empty();
 
     var animal = $(this).data("name");
   //  // var key = "dc6zaTOxFJmzC";
@@ -14,20 +14,23 @@ function displayAnimal() {
     method: 'GET'
       }).done(function(response) {
 
-    var giphyDiv = $('<div class="giphyRow">');
-
+    
     for (var i = 0; i < 10; i++) {
 
-      var image = $('<img>').attr('src', response.data[i].images.downsized.url);
+      var giphyDiv = $('<div class="row">');
+
+      var image = $('<img class="col-md-4">').attr('src', response.data[i].images.downsized.url);
+
+      var rating = response.data[i].rating;
+
+      var putRatingHere = $('<p class="col-md-4">').html("Rating: " + rating);
       
       giphyDiv.append(image);
 
-      var rating = response.data[i].rating;
-      var putRatingHere = $('<p>').html("Rating: " + rating);
-      console.log(rating);
-      giphyDiv.append(putRatingHere);
+      giphyDiv.prepend(putRatingHere);
 
-      $('#animalsView').prepend(giphyDiv);
+    
+      $('#animalsView').append(giphyDiv);
     }
   });
 }
