@@ -1,3 +1,7 @@
+$(document).ready(function() {
+
+  
+
 //array of animals - these need to be buttons
 var animals = ['turtle', 'cheeta', 'hampster', 'lion', 'gecko', 'cat', 'dog'];
 
@@ -6,7 +10,7 @@ function displayAnimal() {
     $("#animalsView").empty();
 
     var animal = $(this).data("name");
-  //  // var key = "dc6zaTOxFJmzC";
+
   //  //this the var that is used for the ajax call to giphy
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC";
     $.ajax({
@@ -55,18 +59,28 @@ function createButtons() {
 $("#findAnimal").on('click', function() {
 
 
+
   var animal = $("#animalInput").val().trim(); //this is how the text from the input boxed is caputured
-
-  animals.push(animal); // the animal from the input is added to the animals array
-
-  createButtons();
-
+  
+    if (animal === "") {
+    alert("Please type animal name");
+    $(".error").text("*This field is required");
+    } 
+    else {
+    animals.push(animal); // the animal from the input is added to the animals array
+  
+    createButtons();
+  
+  }
+  
   return false;
-
-
 });
 
 $(document).on('click', '.btn-warning', displayAnimal);
 
 createButtons();
+
+
+
+});
 

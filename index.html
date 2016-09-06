@@ -19,19 +19,26 @@
     <div id="buttonsView"></div>
 
     <br>
-    <form name="form1" class="form-inline">
-      <div class="animal-form">
-        <label class="control-label" for="animalInput">Search for your favorite animal</label>
+    <form id="myForm" class="form-inline">
+        <div class="animal-form">
+         
+            <label class="control-label" for="animalInput">Search for your favorite animal</label>
 
-        <input name="form2" id="animalInput" class="form-control" type="text" placeholder="Type here..." required>
-        <!-- this will trigger this AJAX call -->
+            <input type="text" name="form1" id="animalInput" class="form-control"  placeholder="Type here...">
 
-        <input id="findAnimal" type="submit" value="Animal Search" class="btn btn-success">
+            <span class="error"></span>
+          <!-- this will trigger this AJAX call -->
+
+            <div id="animal_submit">
+              <input type="submit" id="findAnimal" value="Animal Search" class="btn btn-success">
+            </div>
+
+
       </div>
 
-      <h2>See your favorite animal giphys below </h2>
-      <div id="animalsView">
+           <h2>See your favorite animal giphys below </h2>
       
+      <div id="animalsView">
       </div>
 
     </form>
