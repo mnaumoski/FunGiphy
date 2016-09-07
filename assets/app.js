@@ -18,12 +18,14 @@ function displayAnimal() {
     method: 'GET'
       }).done(function(response) {
 
-    
+    console.log(response);
+
+
     for (var i = 0; i < 10; i++) {
 
       var giphyDiv = $('<div class="gallery">');
 
-      var image = $('<img>').attr('src', response.data[i].images.downsized.url);
+      var image = $('<img>').attr('src', response.data[i].images.downsized_still.url);
 
       
       var rating = response.data[i].rating;
@@ -36,6 +38,24 @@ function displayAnimal() {
 
     
       $('#animalsView').append(giphyDiv);
+      
+    // for (var i = 0; i < 10; i++) {
+
+    //   var giphyDiv = $('<div class="gallery">');
+
+    //   var image = $('<img>').attr('src', response.data[i].images.downsized.url);
+
+      
+    //   var rating = response.data[i].rating;
+
+    //   var putRatingHere = $('<p>').text("This giphy's rating: " + rating);
+      
+    //   giphyDiv.append(image);
+
+    //   giphyDiv.prepend(putRatingHere);
+
+    
+    //   $('#animalsView').append(giphyDiv);
     }
   });
 }
