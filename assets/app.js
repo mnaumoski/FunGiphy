@@ -51,24 +51,6 @@ function displayAnimal() {
           $(this).attr("src", response.data[i].images.downsized_still.url);
 
         });
-
-    // for (var i = 0; i < 10; i++) {
-
-    //   var giphyDiv = $('<div class="gallery">');
-
-    //   
-
-      
-    //   var rating = response.data[i].rating;
-
-    //   var putRatingHere = $('<p>').text("This giphy's rating: " + rating);
-      
-    //   giphyDiv.append(image);
-
-    //   giphyDiv.prepend(putRatingHere);
-
-    
-    //   $('#animalsView').append(giphyDiv);
     }
   });
 }
