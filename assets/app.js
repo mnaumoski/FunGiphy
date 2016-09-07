@@ -20,30 +20,43 @@ function displayAnimal() {
 
     console.log(response);
 
-
+// this first loop creates a gallery of still images - the ajax call to the still .gif
     for (var i = 0; i < 10; i++) {
 
       var giphyDiv = $('<div class="gallery">');
 
-      var image = $('<img>').attr('src', response.data[i].images.downsized_still.url);
+      var stillImage = $('<img>').attr('src', response.data[i].images.downsized_still.url);
 
+      var image = $('<img>').attr('src', response.data[i].images.downsized.url);
       
-      var rating = response.data[i].rating;
 
+      stillImage.addClass("animateThis");
+
+      var rating = response.data[i].rating;
       var putRatingHere = $('<p>').text("This giphy's rating: " + rating);
       
-      giphyDiv.append(image);
-
+      giphyDiv.append(stillImage);
       giphyDiv.prepend(putRatingHere);
-
-    
       $('#animalsView').append(giphyDiv);
+
+// this where I will try to replace the still with its dynamic mate
       
+      $(".animateThis").hover(
+        function(){
+            $(this).attr("src", response.data[i].images.downsized.url);
+
+        },
+
+        function() {
+          $(this).attr("src", response.data[i].images.downsized_still.url);
+
+        });
+
     // for (var i = 0; i < 10; i++) {
 
     //   var giphyDiv = $('<div class="gallery">');
 
-    //   var image = $('<img>').attr('src', response.data[i].images.downsized.url);
+    //   
 
       
     //   var rating = response.data[i].rating;
