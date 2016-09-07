@@ -27,8 +27,9 @@ function displayAnimal() {
 
       // var stillImage = $('<img>').attr('src', response.data[i].images.downsized_still.url);
 
-      var image = $('<img>').attr('src', response.data[i].images.downsized.url);
+      var image = $('<img>').attr('src', response.data[i].images.downsized_still.url);
       
+      image.attr("data-state", response.data[i].images.downsized_still.url);
       image.attr("data-still", response.data[i].images.downsized_still.url);
       image.attr("data-animated", response.data[i].images.downsized.url);
       image.addClass("clickToMove");
@@ -43,15 +44,11 @@ function displayAnimal() {
 
 // this where I will try to replace the still with its dynamic mate 
 
-      
       $('.clickToMove').click(function() {
-
-        alert("click");
-
-      })
+      
         
     }
-  });
+})
 }
 
 
