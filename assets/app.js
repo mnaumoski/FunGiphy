@@ -25,6 +25,7 @@ function displayAnimal() {
 
       var image = $('<img>').attr('src', response.data[i].images.downsized.url);
 
+      
       var rating = response.data[i].rating;
 
       var putRatingHere = $('<p>').text("This giphy's rating: " + rating);

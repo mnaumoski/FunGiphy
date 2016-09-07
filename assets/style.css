@@ -13,26 +13,22 @@ img {
   width: 250px;
   height: 200px;
   padding: 0px 20px 20px 0px;
+  
 
 }
-
-img:disabled {
-
-}
-
-#findAnimal {
- 	position: relative;
-
-}
-
 
 .gallery {
 	display: inline-block;
+	animation
 }
 
 .animal_submit {
 	padding-left: 300px;
+	position: relative;
 }
+
 .error {
 	color: red;
 }
+
+
