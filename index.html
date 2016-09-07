@@ -13,33 +13,33 @@
 </head>
 
 <body>
+  
+    <header>Fun Animal Search</header>
 
-  <header>Fun Animal Search</header>
-
-  <!-- this is where the buttons should show up -->
-  <div class="container">
+    <!-- this is where the buttons should show up -->
+<div class="container">
     <div id="buttonsView"></div>
 
     <br>
-    <form id="myForm" class="form-inline" action="#">
-      <div class="animal-form">
+    <form id="myForm" class="form-inline">
+        <div class="animal-form">
+         
+            <label class="control-label" for="animalInput">Search for your favorite animal</label>
 
-        <label class="control-label" for="animalInput">Search for your favorite animal</label>
+            <input type="text" name="form1" id="animalInput" class="form-control"  placeholder="Type here...">
 
-        <input type="text" name="form1" id="animalInput" class="form-control" placeholder="Type here...">
+            <span class="error"></span>
+          <!-- this will trigger this AJAX call -->
 
-        <span class="error"></span>
-        <!-- this will trigger this AJAX call -->
-
-        <div id="animal_submit">
-          <input type="submit" id="findAnimal" value="Animal Search" class="btn btn-success">
-        </div>
+            <div id="animal_submit">
+              <input type="submit" id="findAnimal" value="Animal Search" class="btn btn-success">
+            </div>
 
 
       </div>
 
-      <h2>See your favorite animal giphys below </h2>
-
+           <h2>See your favorite animal giphys below </h2>
+      
       <div id="animalsView">
       </div>
 

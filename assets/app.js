@@ -25,32 +25,31 @@ function displayAnimal() {
 
       var giphyDiv = $('<div class="gallery">');
 
-      var stillImage = $('<img>').attr('src', response.data[i].images.downsized_still.url);
+      // var stillImage = $('<img>').attr('src', response.data[i].images.downsized_still.url);
 
       var image = $('<img>').attr('src', response.data[i].images.downsized.url);
       
+      image.attr("data-still", response.data[i].images.downsized_still.url);
+      image.attr("data-animated", response.data[i].images.downsized.url);
+      image.addClass("clickToMove");
 
-      stillImage.addClass("animateThis");
 
       var rating = response.data[i].rating;
       var putRatingHere = $('<p>').text("This giphy's rating: " + rating);
       
-      giphyDiv.append(stillImage);
+      giphyDiv.append(image);
       giphyDiv.prepend(putRatingHere);
       $('#animalsView').append(giphyDiv);
 
-// this where I will try to replace the still with its dynamic mate
+// this where I will try to replace the still with its dynamic mate 
+
       
-      $(".animateThis").hover(
-        function(){
-            $(this).attr("src", response.data[i].images.downsized.url);
+      $('.clickToMove').click(function() {
 
-        },
+        alert("click");
 
-        function() {
-          $(this).attr("src", response.data[i].images.downsized_still.url);
-
-        });
+      })
+        
     }
   });
 }
@@ -73,8 +72,6 @@ function createButtons() {
 }
 // function that triggers the AJAX call 
 $("#findAnimal").on('click', function() {
-
-
 
   var animal = $("#animalInput").val().trim(); //this is how the text from the input boxed is caputured
   
