@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  
 
 //array of animals - these need to be buttons
 var animals = ['turtle', 'cheeta', 'hampster', 'lion', 'gecko', 'cat', 'dog'];
@@ -46,42 +45,42 @@ function displayAnimal() {
       $('.clickToMove').click(function() {
 
 
-    }
-})
+    })
 }
+})
 
 
 function createButtons() {
 
   $('#buttonsView').empty(); //this prevents repetetition of buttons
 
-  //the function loops throgh the array of animals 
+  //the function loops throgh the array of animals
   for (var i = 0; i < animals.length; i++) {
 
     var a = $('<button>');
     a.addClass('btn btn-warning');
     a.attr('data-name', animals[i]); // add data-attribute
     a.text(animals[i]); //text for button
-    $('#buttonsView').append(a); //add the button 
+    $('#buttonsView').append(a); //add the button
 
   }
 }
-// function that triggers the AJAX call 
+// function that triggers the AJAX call
 $("#findAnimal").on('click', function() {
 
   var animal = $("#animalInput").val().trim(); //this is how the text from the input boxed is caputured
-  
+
     if (animal === "") {
     alert("Please type animal name");
     $(".error").text("*This field is required");
-    } 
+    }
     else {
     animals.push(animal); // the animal from the input is added to the animals array
-  
+
     createButtons();
-  
+
   }
-  
+
   return false;
 });
 
@@ -91,5 +90,5 @@ createButtons();
 
 
 
-});
-
+};
+})
