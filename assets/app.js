@@ -1,35 +1,36 @@
 $(document).ready(function() {
 
-//array of animals - these need to be buttons
-var animals = ['turtle', 'cheeta', 'hampster', 'lion', 'gecko', 'cat', 'dog'];
+//array of animals - buttons
+  var animals = ['turtle', 'cheeta', 'hampster', 'lion', 'gecko', 'cat', 'dog'];
 
-function displayAnimal() {
-    $("#animalsView").empty();
-    var animal = $(this).data("name");
- //this the var that is used for the ajax call to giphy
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC";
-    $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
-    console.log(response);
-// this first loop creates a gallery of still images - the ajax call to the still .gif
-    for (var i = 0; i < 10; i++) {
-      var giphyDiv = $('<div class="gallery">');
-      // var stillImage = $('<img>').attr('src', response.data[i].images.downsized_still.url);
-      var image = $('<img>').attr('src', response.data[i].images.downsized_still.url);
-
-      // image.attr("data-state", response.data[i].images.downsized_still.url);
-      // image.attr("data-still", response.data[i].images.downsized_still.url);
-      // image.attr("data-animated", response.data[i].images.downsized.url);
+  function displayAnimal() {
+      $("#animalsView").empty();
+      var animal = $(this).data("name");//this the var that is used for the ajax call to giphy
+      var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC";
+      $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
+      console.log(response);
+      // this first loop creates a gallery of still images; the data-animated is the animated
+      for (var i = 0; i < 10; i++) {
+          var giphyDiv = $('<div class="gallery">');
+          var image = $('<img>');
+          image.attr('src', response.data[i].images.original_still.url);
+          image.attr('data-animated', response.data[i].images.downsized.url);
       // image.addClass("clickToMove");
 
-//Add rating
+      //Add rating
       var rating = response.data[i].rating;
       var putRatingHere = $('<p>').text("This giphy's rating: " + rating);
       giphyDiv.append(image);
       giphyDiv.prepend(putRatingHere);
       $('#animalsView').append(giphyDiv);
-// Replace the still with its dynamic mate
-      // $('.clickToMove').click(function() {
 
+      // Replace the still with its dynamic mate
+      function animateImage() {
+        var stillImg = $(this).attr('src');
+        var animatedImg = $(this).attr('data-animated');
+        $(this).attr('data-animated', stillImg);
+        $(this).attr('src',animatedImg);
+      }
     }
 })
 }
@@ -59,6 +60,7 @@ $("#findAnimal").on('click', function() {
 });
 
 $(document).on('click', '.btn-warning', displayAnimal);
+
 
 createButtons();
 });
