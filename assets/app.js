@@ -13,8 +13,9 @@ $(document).ready(function() {
       for (var i = 0; i < 10; i++) {
           var giphyDiv = $('<div class="gallery">');
           var image = $('<img>');
-          image.attr('src', response.data[i].images.original_still.url);
-          image.attr('data-animated', response.data[i].images.downsized.url);
+          image.addClass('clickChange');
+          image.attr('src', response.data[i].images.original.url);
+          image.attr('data-still', response.data[i].images.original_still.url);
       // image.addClass("clickToMove");
 
       //Add rating
@@ -24,16 +25,16 @@ $(document).ready(function() {
       giphyDiv.prepend(putRatingHere);
       $('#animalsView').append(giphyDiv);
 
-      // Replace the still with its dynamic mate
-      function animateImage() {
-        var stillImg = $(this).attr('src');
-        var animatedImg = $(this).attr('data-animated');
-        $(this).attr('data-animated', stillImg);
-        $(this).attr('src',animatedImg);
-      }
     }
 })
 }
+      // Replace the still with its dynamic mate
+function animateImage() {
+        var stillImg = $(this).attr('data-still');
+        var animatedImg = $(this).attr('src');
+        $(this).attr('data-still', animatedImg);
+        $(this).attr('src', stillImg);
+      }
 
 function createButtons() {
   $('#buttonsView').empty(); //this prevents repetetition of buttons
@@ -60,7 +61,7 @@ $("#findAnimal").on('click', function() {
 });
 
 $(document).on('click', '.btn-warning', displayAnimal);
-
+$(document).on('click', '.clickChange', animateImage);
 
 createButtons();
 });
