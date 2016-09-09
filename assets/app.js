@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   
 
 //array of animals - these need to be buttons
@@ -45,8 +44,8 @@ function displayAnimal() {
 // this where I will try to replace the still with its dynamic mate 
 
       $('.clickToMove').click(function() {
-      
-        
+
+
     }
 })
 }
