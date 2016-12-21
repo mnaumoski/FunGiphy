@@ -6,7 +6,7 @@ $(document).ready(function() {
   function displayAnimal() {
     $("#animalsView").empty();
     var animal = $(this).data("name"); //this the var that is used for the ajax call to giphy
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC";
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
     $.ajax({
       url: queryURL,
       method: 'GET'
