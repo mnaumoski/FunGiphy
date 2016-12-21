@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Fun with Giphy Animals</title>
+  <title>Giphy Fun Search</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link type="text/css" rel="stylesheet" href="assets/reset.css">
@@ -13,26 +13,29 @@
 </head>
 
 <body>
-    <header>Fun Animal Search</header>
+<div class="container jumbotron">
+    <header class="blink_me">Giphy Fun Search</header>
+    <p class="text-center">Press buttons to see giphys or create your own! Just type a keyword in the search below. </p>
+    </div>
     <!-- this is where the buttons should show up -->
-<div class="container">
-    <div id="buttonsView"></div>
+<div class="container text-center">
+    <div class="text-center" id="buttonsView"></div>
     <br>
     <form id="myForm" class="form-inline">
         <div class="animal-form">
-            <label class="control-label" for="animalInput">Search for your favorite animal</label>
-
+            <!-- <label class="control-label" for="animalInput"></label> -->
             <input type="text" name="form1" id="animalInput" class="form-control"  placeholder="Type here...">
-
+            <br>
             <span class="error"></span>
+            <br>
           <!-- this will trigger this AJAX call -->
             <div id="animal_submit">
-              <input type="submit" id="findAnimal" value="Animal Search" class="btn btn-success">
+              <input type="submit" id="findAnimal" value="Search" class="btn btn-success">
             </div>
       </div>
-           <h2>See your favorite animal giphys below </h2>
-      <div id="animalsView"></div>
     </form>
+    <h2>See your giphys below</h2>
+      <div id="animalsView"></div>
 
   </div>
 
